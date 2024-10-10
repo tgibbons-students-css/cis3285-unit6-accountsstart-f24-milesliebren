@@ -48,14 +48,13 @@ namespace Services
         public void Deposit(string accountName, decimal amount)
         // deposit the given account into the account named
         {
-            AccountBase acc = FindAccount(accountName);
-            acc.AddTransaction(amount);
+            FindAccount(accountName).AddTransaction(amount);
         }
 
         public void Withdrawal(string accountName, decimal amount)
         // withdrawal the given account into the account named
         {
-            throw new NotImplementedException();
+            FindAccount(accountName).AddTransaction((amount * -1));
         }
 
         private AccountBase FindAccount(string accountName)
